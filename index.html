@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>1 對 1 免費財務健檢｜灰哥 理財陪跑教練</title>
-<meta name="description" content="45 分鐘線上免費財務健檢。帶著現在的混亂來就可以——我們一起把錢攤開，找出真正卡住你的那一件事。每月限量免費名額。">
+<meta name="description" content="想好好理財，但一直不知如何開始？預約 45 分鐘財務健檢，讓我陪你把金錢狀況整理清楚。每月限量免費名額。">
 <meta property="og:title" content="1 對 1 免費財務健檢｜灰哥 理財陪跑教練">
-<meta property="og:description" content="你不用先整理好，才能來談錢。45 分鐘線上免費財務健檢，每月限量名額。">
+<meta property="og:description" content="想好好理財，但一直不知如何開始？預約 45 分鐘財務健檢，每月限量免費名額。">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -194,7 +194,13 @@ header{
 .voice p{font-size:.89rem;color:var(--ink-2);line-height:1.95}
 .voice footer{
   margin-top:18px;padding-top:14px;border-top:1px solid var(--line-soft);
-  font-size:.76rem;color:var(--ink-3);letter-spacing:.06em;
+}
+.voice footer b{
+  display:block;font-family:"Noto Serif TC",serif;font-weight:500;
+  font-size:.86rem;color:var(--ink-2);letter-spacing:.04em;
+}
+.voice footer span{
+  display:block;font-size:.75rem;color:var(--ink-3);letter-spacing:.06em;margin-top:2px;
 }
 
 /* ---------- 表單 ---------- */
@@ -208,12 +214,6 @@ header{
   color:var(--ink-2);font-size:.9rem;line-height:2;
 }
 .form-placeholder b{display:block;font-family:"Noto Serif TC",serif;color:var(--clay);margin-bottom:8px}
-.reassure{
-  background:var(--card);border-left:2px solid var(--moss);border-radius:2px;
-  padding:24px 28px;margin-top:28px;
-}
-.reassure p{font-size:.92rem;color:var(--ink-2)}
-.reassure strong{color:var(--ink);font-weight:500}
 #done{display:none;text-align:center;padding:56px 28px}
 #done .tick{
   width:46px;height:46px;border:1px solid var(--moss);border-radius:50%;
@@ -314,8 +314,8 @@ footer.site p{max-width:46em}
   <div class="wrap hero-grid">
     <div>
       <div class="eyebrow">1 對 1 免費財務健檢</div>
-      <h1>你不用先整理好，<br>才能<em>來談錢</em>。</h1>
-      <p>45 分鐘線上免費財務健檢。帶著現在的混亂來就可以——我們一起把它攤開，找出真正卡住你的那一件事。</p>
+      <h1>想好好理財，<br>但一直<em>不知如何開始</em>？</h1>
+      <p>預約 45 分鐘財務健檢，讓我陪你把金錢狀況整理清楚。</p>
       <p>不用準備資料，不用先看懂什麼。你現在的樣子，就是我們的起點。</p>
       <div class="hero-cta">
         <a href="#signup" class="btn">預約 45 分鐘免費健檢</a>
@@ -355,19 +355,23 @@ footer.site p{max-width:46em}
       </div>
       <div class="pain">
         <h3><i>02</i>網路上的方法，套不進我的生活</h3>
-        <p>六罐子理財法、631 法則、先存後花——看的時候都很有道理，執行兩週就散了。</p>
+        <p>六罐子理財法、631 法則、先存後花——看的時候都很有道理，執行兩週就卡住放棄了。</p>
         <q>我收入狀況很不穩定，很沒辦法像網路上查得到的教大家什麼的</q>
       </div>
       <div class="pain">
         <h3><i>03</i>以為理財就是投資</h3>
-        <q>以為「希望可以理財，可是理財就是投資」，卻不懂理財是先梳理自己目前可以掌控的金流</q>
+        <p>以為理財就是要趕快去投資，卻不懂理財是先梳理自己目前可以掌控的金流。</p>
       </div>
       <div class="pain">
         <h3><i>04</i>手上有資產，卻還是覺得沒錢</h3>
-        <q>過去對現金覺得現金效益最小，所以都全部放入股票；但當需要一筆現金的時候發現自己沒有，所以時常覺得自己沒錢</q>
+        <p>過去對現金覺得現金效益最小，所以都全部放入股票；但當需要一筆現金的時候發現自己沒有，所以時常覺得自己沒錢。</p>
       </div>
       <div class="pain">
-        <h3><i>05</i>最難的，其實是第一步</h3>
+        <h3><i>05</i>知道理財很重要，卻不知道從哪裡開始</h3>
+        <p>網路上的資訊爆炸，每個人講的都不一樣。想開始，卻連第一步該做什麼都不確定，於是一直停在原地。</p>
+      </div>
+      <div class="pain">
+        <h3><i>06</i>最難的，其實是第一步</h3>
         <p>不是不知道該理財，是要把自己的財務攤開給另一個人看，這件事本身就很難開口。</p>
         <q>最困難的應該就是面對自己財務狀況的第一步哈哈</q>
       </div>
@@ -386,17 +390,17 @@ footer.site p{max-width:46em}
     <div class="steps">
       <div class="step">
         <i>STEP 01</i>
-        <h3>先讓錢動起來</h3>
+        <h3>先行動</h3>
         <p>不用等一切算清楚，先開始一筆你確定做得到的定期定額。1,000 元也可以——那是券商 App 的下限，不是我的下限。</p>
       </div>
       <div class="step">
         <i>STEP 02</i>
-        <h3>再把現況攤開</h3>
+        <h3>看清楚</h3>
         <p>看清楚錢流去哪、手上到底有哪些資源、又有哪些負債。不是憑感覺，是看實際的數字。</p>
       </div>
       <div class="step">
         <i>STEP 03</i>
-        <h3>最後做診斷</h3>
+        <h3>再優化</h3>
         <p>資產與負債一起體檢。哪筆該優先處理、調整之後會變怎樣，算 before / after 給你看。</p>
       </div>
     </div>
@@ -422,7 +426,7 @@ footer.site p{max-width:46em}
         <b>01</b>
         <div>
           <h3>你想達成的目標是什麼？</h3>
-          <p>買房、結婚、生小孩，或只是想有一筆不用怕的錢。先把目標講清楚，後面的討論才有方向——很多人卡住不是因為不努力，是因為從來沒有一個具體的目標。</p>
+          <p>買房、創業、出國遊學，或只是想有一筆 fxxk up money。先把目標講清楚，後面的討論才有方向——很多人卡住不是因為不努力，是因為從來沒有一個具體的目標。</p>
         </div>
       </div>
       <div class="q">
@@ -494,37 +498,37 @@ footer.site p{max-width:46em}
       <div class="voice">
         <h3>第二次諮詢，就還掉了房貸</h3>
         <p>當初加入的目標第一項就是還掉一般房貸，灰哥在第二次的諮詢中，就協助我運用現有資產達成了這個目標。而且清晰簡單明瞭，心理壓力突然變小，非常開心。可以確實存下更多的錢。</p>
-        <footer>許先生｜個人工作室經營者</footer>
+        <footer><b>許先生</b><span>個人工作室經營者</span></footer>
       </div>
       <div class="voice">
         <h3>可以放心說實話，不怕被批評</h3>
         <p>可以很放心跟你說實際的情況，說出來不怕被批評。而且在分享觀念時可以立刻抓到我的盲點。自從有了這個財務的諮詢，我覺得對自己更有自信，每次都有新的觀念和建議，而且變得非常有執行力，知道自己為什麼而努力。</p>
-        <footer>Su 小姐｜軟體工程師</footer>
+        <footer><b>Su 小姐</b><span>軟體工程師</span></footer>
       </div>
       <div class="voice">
         <h3>最困難的是面對自己財務狀況的第一步</h3>
         <p>在討論與實踐中，更清楚知道自己的財務狀況，也知道理財並不是很制式的，而是有很多討論空間、替代方式。尤其是針對我的行業別、收入不穩定的狀況下，可以有更安全更好的處理方式。沒有太多的困難，提供的表單也很簡單易懂。</p>
-        <footer>Alice｜自由接案者</footer>
+        <footer><b>Alice</b><span>自由接案者</span></footer>
       </div>
       <div class="voice">
         <h3>不再憑感覺，而是看實際的數字</h3>
         <p>最喜歡的部份是釐清自己所有的資產，好像可以更看清楚自己目前的「根」。進步最多的就是透過實際的數字更有目的的消費或存錢，不是「憑感覺」而已。知道積沙真的可以成塔，不要小看自己過去的累積，也不要小看一些不以為意的消耗。</p>
-        <footer>謝小姐｜服務業</footer>
+        <footer><b>謝小姐</b><span>服務業</span></footer>
       </div>
       <div class="voice">
         <h3>逐步達成緊急預備金</h3>
         <p>很詳細幫我分析個人財務狀況，用客觀的角度提供建議，然後協助訂製方法還有提供表格，逐步幫我達成緊急預備金，然後邁向可以存投資的資金。也讓我知道投資一定要用閒錢，這樣才會踏實，才不會動用到自己要使用的生活開銷，影響到生活品質。</p>
-        <footer>Cano｜工程師</footer>
+        <footer><b>Cano</b><span>工程師</span></footer>
       </div>
       <div class="voice">
         <h3>開始有目標可以動作</h3>
         <p>開始有目標可以動作，而不是像之前一樣以為「希望可以理財，可是理財就是投資」，卻不懂理財是先梳理自己目前可以掌控的金流。</p>
-        <footer>王小姐｜服務業</footer>
+        <footer><b>王小姐</b><span>服務業</span></footer>
       </div>
       <div class="voice">
         <h3>小白友善，對觀念建立很有幫助</h3>
         <p>學習到財務配置，釐清很多觀念，對於未來更有方向。預計持續投入大盤，並透過完整的資產規劃，善用現有資金。小白友善，對於觀念的建立非常有幫助。</p>
-        <footer>L 先生｜上班族</footer>
+        <footer><b>L 先生</b><span>上班族</span></footer>
       </div>
     </div>
   </div>
@@ -536,11 +540,7 @@ footer.site p{max-width:46em}
     <div class="eyebrow">預約健檢</div>
     <h2>預約你的 45 分鐘</h2>
     <div class="rule"></div>
-    <p class="lede">填完下面的表單就能選時間。表單會問一些你目前財務狀況的問題——寫得越具體，那 45 分鐘我們越能直接切進重點。</p>
-
-    <div class="reassure">
-      <p><strong>不用擔心寫得不夠好看。</strong>沒有人的財務是整齊的，我看過各式各樣的狀況，沒有一個讓我皺過眉頭。你現在的樣子，就是我們的起點。</p>
-    </div>
+    <p class="lede">因時間有限，表單內容請填寫具體且詳細，健檢時能更精準切入重點。<br>填答並送出，就會看到預約時間畫面。</p>
 
     <div class="form-shell">
       <div class="form-placeholder" id="formPlaceholder">
@@ -607,7 +607,7 @@ footer.site p{max-width:46em}
 
     <details>
       <summary>我很怕被推銷，這場健檢會有推銷環節嗎？</summary>
-      <div>我不賣任何金融商品——不賣保單、不賣基金，也沒有任何金融機構的抽成。我後面確實有付費的陪跑服務，如果你的狀況適合，我會告訴你；如果不適合，我也會直接說。但那不是這 45 分鐘的目的。</div>
+      <div>我不賣任何金融商品，這點請你放心。健檢結束後，我確實會分享我的付費陪跑服務，但前提是你同意。</div>
     </details>
 
     <details>
