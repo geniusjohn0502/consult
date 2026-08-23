@@ -253,6 +253,16 @@ header{
 #done .done-line a:hover{border-bottom-color:var(--ink)}
 
 /* ---------- 關於 ---------- */
+.about-photo{
+  position:relative;float:left;width:272px;
+  margin:6px 42px 26px 0;shape-outside:margin-box;
+}
+.about-photo img{border-radius:2px;filter:saturate(.86) contrast(1.02)}
+.about-photo::after{
+  content:"";position:absolute;inset:-13px 13px 13px -13px;
+  border:1px solid var(--line);border-radius:2px;z-index:-1;
+}
+.about .principles{clear:both}
 .about p{margin-bottom:20px;color:var(--ink-2);font-size:.96rem;max-width:40em}
 .about p strong{color:var(--ink);font-weight:500;background:linear-gradient(transparent 62%,rgba(124,140,116,.24) 0)}
 .principles{margin-top:38px;padding-top:32px;border-top:1px solid var(--line);display:grid;gap:18px}
@@ -290,6 +300,7 @@ footer.site p{max-width:46em}
 @media (max-width:860px){
   .hero-grid{grid-template-columns:1fr;gap:40px}
   .portrait{max-width:260px;margin:0 auto}
+  .about-photo{float:none;width:230px;margin:0 auto 30px}
   .portrait figcaption{text-align:center}
   .steps{grid-template-columns:1fr}
   .fit{grid-template-columns:1fr}
@@ -587,6 +598,10 @@ footer.site p{max-width:46em}
     <div class="eyebrow">關於我</div>
     <h2>我也是 30 歲才開始的</h2>
     <div class="rule"></div>
+
+    <figure class="about-photo">
+      <img src="assets/about-john.jpg" alt="灰哥" width="380" height="570" loading="lazy">
+    </figure>
 
     <p>在 30 歲以前，我的錢都拿給媽媽，她幫我買股票。我自己連證券戶都沒有，她買什麼我就跟著買。</p>
     <p>2018 年中美貿易戰，我的股票打了七折。那時候我才發現，我對我買的東西一無所知——小白中的小白。大學同學群組在股災時特別熱絡，大家分享看法、討論停損了什麼，他們講的我一句都聽不懂。我覺得自己是韭菜中的韭菜。</p>
