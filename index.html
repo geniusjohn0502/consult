@@ -232,6 +232,7 @@ header{
 }
 .fq .req{color:var(--clay);margin-left:4px;font-family:"Noto Sans TC",sans-serif}
 .fq .hint{display:block;font-size:.84rem;color:var(--ink-3);margin-bottom:12px}
+.fq .hint-strong{color:var(--moss-dark);font-weight:400;margin-bottom:4px}
 .fq input[type=text],.fq input[type=email],.fq textarea{
   width:100%;margin-top:6px;padding:11px 14px;
   font:inherit;font-size:.95rem;font-weight:400;color:var(--ink);
@@ -246,7 +247,7 @@ header{
 }
 .fq .opt input{accent-color:var(--moss-dark);width:18px;height:18px;margin-top:4px;flex:none;cursor:pointer}
 .fq .opt-other{flex-wrap:wrap}
-.fq .opt-other input[type=text]{flex:1 1 180px;margin-top:-4px;padding:6px 12px}
+.fq .opt-other input[type=text]{flex:0 0 calc(100% - 30px);width:auto;height:auto;margin:4px 0 0 30px;padding:11px 14px;cursor:text}
 .fq .err{display:none;font-size:.84rem;color:#A34A3A;margin-top:8px}
 .fq.invalid .err{display:block}
 .fq.invalid input[type=text],.fq.invalid input[type=email],.fq.invalid textarea{border-color:#C98A7C}
@@ -658,12 +659,14 @@ footer.site p{max-width:46em}
 
         <div class="fq" data-req>
           <label for="f-goal">你渴望透過「理財」，達到什麼樣的具體成果／目標／夢想？（可列點）<span class="req">*</span></label>
+          <span class="hint hint-strong">請盡可能詳細填寫，會對諮詢的進行更有幫助。</span>
           <textarea id="f-goal" name="entry.790934692"></textarea>
           <span class="err">這題必填</span>
         </div>
 
         <div class="fq" data-req>
           <label for="f-tried">針對這個目標，你做過哪些嘗試？遇到什麼具體困難？（可列點）<span class="req">*</span></label>
+          <span class="hint hint-strong">請盡可能詳細填寫，會對諮詢的進行更有幫助。</span>
           <textarea id="f-tried" name="entry.411994800"></textarea>
           <span class="err">這題必填</span>
         </div>
