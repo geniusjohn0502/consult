@@ -240,6 +240,8 @@ header{
   transition:border-color .2s,background .2s;
 }
 .fq textarea{min-height:120px;resize:vertical;line-height:1.8}
+.fq textarea[placeholder]{min-height:150px}
+.fq input::placeholder,.fq textarea::placeholder{color:var(--ink-3);opacity:1}
 .fq input[type=text]:focus,.fq input[type=email]:focus,.fq textarea:focus{outline:0;border-color:var(--moss);background:#fff}
 .fq .opt{
   display:flex;align-items:flex-start;gap:12px;padding:9px 4px;
@@ -660,14 +662,14 @@ footer.site p{max-width:46em}
         <div class="fq" data-req>
           <label for="f-goal">你渴望透過「理財」，達到什麼樣的具體成果／目標／夢想？（可列點）<span class="req">*</span></label>
           <span class="hint hint-strong">請盡可能詳細填寫，會對諮詢的進行更有幫助。</span>
-          <textarea id="f-goal" name="entry.790934692"></textarea>
+          <textarea id="f-goal" name="entry.790934692" placeholder="例如：&#10;・三年內存到 100 萬&#10;・存到買房頭期款 300 萬&#10;・存到退休金 2000 萬"></textarea>
           <span class="err">這題必填</span>
         </div>
 
         <div class="fq" data-req>
           <label for="f-tried">針對這個目標，你做過哪些嘗試？遇到什麼具體困難？（可列點）<span class="req">*</span></label>
           <span class="hint hint-strong">請盡可能詳細填寫，會對諮詢的進行更有幫助。</span>
-          <textarea id="f-tried" name="entry.411994800"></textarea>
+          <textarea id="f-tried" name="entry.411994800" placeholder="例如：&#10;嘗試：看 YT 影片學習、有在記帳&#10;困難：覺得記帳很煩、每個月還是很常超支、想投資 ETF 但看不懂"></textarea>
           <span class="err">這題必填</span>
         </div>
 
