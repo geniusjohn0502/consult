@@ -14,7 +14,7 @@
 
 - 對應的 Google 表單：「財務健檢預約表」（`1FAIpQLSfbHXLWdDFaYh73T7X0OrvRRMziJPBCb-BTKyGis6uUYVygCw`）
 - 每一題的 `name="entry.數字"` 就是 Google 表單那題的編號
-- Email 欄位的 `name="emailAddress"` 對應 Google 表單「設定 → 回覆 → 收集電子郵件地址：**回覆者自行輸入**」。⚠️ **不能改回「已驗證」**——那個設定要求填表人先登入 Google，從這頁送出的答案會全部被拒收（2026-10-08 實測過）
+- Email 欄位的 `name="emailAddress"` 對應 Google 表單「設定 → 回覆 → 收集電子郵件地址：**由作答者手動輸入**」。這格在 Google 那邊是必填，**頁面少送這一格，整份會被拒收**（2026-10-08 第一版就是漏了它）
 - 送出後畫面換成「收到了」那一塊，帶 Calendly 預約按鈕和加 LINE 提醒
 
 > ⚠️ **在 Google 表單裡改了題目，這頁要跟著改。**
