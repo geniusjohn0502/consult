@@ -224,12 +224,37 @@ header{
   background:var(--card);border:1px solid var(--line);border-radius:2px;
   padding:36px 32px;margin-top:36px;
 }
-.form-shell iframe{width:100%;border:0;display:block;min-height:900px}
-.form-placeholder{
-  border:1px dashed var(--clay);border-radius:2px;padding:44px 28px;text-align:center;
-  color:var(--ink-2);font-size:.9rem;line-height:2;
+.fq{border:0;padding:0 0 30px;margin:0 0 30px;border-bottom:1px solid var(--line-soft)}
+.fq:last-of-type{border-bottom:0;margin-bottom:8px}
+.fq legend,.fq>label{
+  display:block;font-family:"Noto Serif TC",serif;font-weight:600;font-size:1rem;
+  line-height:1.7;color:var(--ink);margin-bottom:6px;padding:0;
 }
-.form-placeholder b{display:block;font-family:"Noto Serif TC",serif;color:var(--clay);margin-bottom:8px}
+.fq .req{color:var(--clay);margin-left:4px;font-family:"Noto Sans TC",sans-serif}
+.fq .hint{display:block;font-size:.84rem;color:var(--ink-3);margin-bottom:12px}
+.fq input[type=text],.fq input[type=email],.fq textarea{
+  width:100%;margin-top:6px;padding:11px 14px;
+  font:inherit;font-size:.95rem;font-weight:400;color:var(--ink);
+  background:var(--paper);border:1px solid var(--line);border-radius:2px;
+  transition:border-color .2s,background .2s;
+}
+.fq textarea{min-height:120px;resize:vertical;line-height:1.8}
+.fq input[type=text]:focus,.fq input[type=email]:focus,.fq textarea:focus{outline:0;border-color:var(--moss);background:#fff}
+.fq .opt{
+  display:flex;align-items:flex-start;gap:12px;padding:9px 4px;
+  font-size:.95rem;font-weight:400;color:var(--ink);cursor:pointer;line-height:1.7;
+}
+.fq .opt input{accent-color:var(--moss-dark);width:18px;height:18px;margin-top:4px;flex:none;cursor:pointer}
+.fq .opt-other{flex-wrap:wrap}
+.fq .opt-other input[type=text]{flex:1 1 180px;margin-top:-4px;padding:6px 12px}
+.fq .err{display:none;font-size:.84rem;color:#A34A3A;margin-top:8px}
+.fq.invalid .err{display:block}
+.fq.invalid input[type=text],.fq.invalid input[type=email],.fq.invalid textarea{border-color:#C98A7C}
+.form-actions{text-align:center;padding-top:10px}
+.form-actions .btn{padding:14px 44px;font-size:.95rem}
+.form-actions .btn[disabled]{opacity:.55;cursor:wait}
+#formErr{display:none;margin-top:18px;font-size:.88rem;color:#A34A3A;line-height:1.9}
+#formErr a{color:var(--moss-dark);font-weight:500}
 #done{display:none;text-align:center;padding:56px 28px}
 #done .tick{
   width:46px;height:46px;border:1px solid var(--moss);border-radius:50%;
@@ -570,13 +595,118 @@ footer.site p{max-width:46em}
     </div>
 
     <div class="form-shell">
-      <div class="form-placeholder" id="formPlaceholder">
-        <b>此處待嵌入 Google 表單</b>
-        把表單網址填到這個檔案最底下的 FORM_URL，這塊提示就會自動換成表單。<br>
-        ⚠️ 表單務必做成「單一區段」，不要分頁。
-      </div>
+      <!-- 每一題的 name="entry.數字" 對應 Google 表單的題目編號，答案會直接寫進表單後台。
+           改了 Google 表單的題目或選項文字，這裡要跟著改，否則那一份回應會被 Google 拒收。 -->
+      <form id="healthForm" novalidate>
+        <div class="fq" data-req>
+          <label for="f-name">您的姓名 / 年齡<span class="req">*</span></label>
+          <input type="text" id="f-name" name="entry.473477873" placeholder="例：林書豪 / 25" autocomplete="name">
+          <span class="err">這題必填</span>
+        </div>
 
-      <iframe id="gform" title="財務健檢報名表單" loading="lazy" hidden></iframe>
+        <div class="fq" data-req>
+          <label for="f-line">LINE 顯示名稱<span class="req">*</span></label>
+          <input type="text" id="f-line" name="entry.1460431145">
+          <span class="err">這題必填</span>
+        </div>
+
+        <div class="fq" data-req data-email>
+          <label for="f-email">Email<span class="req">*</span></label>
+          <input type="email" id="f-email" name="emailAddress" autocomplete="email" inputmode="email">
+          <span class="err">請填正確的 Email</span>
+        </div>
+
+        <fieldset class="fq" data-req>
+          <legend>你目前收入型態<span class="req">*</span></legend>
+          <label class="opt"><input type="radio" name="entry.1552482294" value="固定月薪">固定月薪</label>
+          <label class="opt"><input type="radio" name="entry.1552482294" value="底薪 + 獎金">底薪 + 獎金</label>
+          <label class="opt"><input type="radio" name="entry.1552482294" value="自由接案">自由接案</label>
+          <label class="opt"><input type="radio" name="entry.1552482294" value="自營 / 創業">自營 / 創業</label>
+          <label class="opt"><input type="radio" name="entry.1552482294" value="目前無固定收入">目前無固定收入</label>
+          <span class="err">請選一項</span>
+        </fieldset>
+
+        <fieldset class="fq" data-req>
+          <legend>目前年收入<span class="req">*</span></legend>
+          <span class="hint">根據你的收入來進行資產建議</span>
+          <label class="opt"><input type="radio" name="entry.11583148" value="36 萬以下">36 萬以下</label>
+          <label class="opt"><input type="radio" name="entry.11583148" value="36萬 - 50萬">36 萬 – 50 萬</label>
+          <label class="opt"><input type="radio" name="entry.11583148" value="50萬 - 80萬">50 萬 – 80 萬</label>
+          <label class="opt"><input type="radio" name="entry.11583148" value="80萬 - 100萬">80 萬 – 100 萬</label>
+          <label class="opt"><input type="radio" name="entry.11583148" value="100萬以上">100 萬以上</label>
+          <span class="err">請選一項</span>
+        </fieldset>
+
+        <fieldset class="fq" data-req>
+          <legend>嘗試過的投資理財行動有哪些<span class="req">*</span></legend>
+          <span class="hint">可複選</span>
+          <label class="opt"><input type="checkbox" name="entry.983623062" value="銀行儲蓄">銀行儲蓄</label>
+          <label class="opt"><input type="checkbox" name="entry.983623062" value="儲蓄險">儲蓄險</label>
+          <label class="opt"><input type="checkbox" name="entry.983623062" value="投資型保單">投資型保單</label>
+          <label class="opt"><input type="checkbox" name="entry.983623062" value="股票 / ETF">股票 / ETF</label>
+          <label class="opt"><input type="checkbox" name="entry.983623062" value="房地產">房地產</label>
+          <label class="opt"><input type="checkbox" name="entry.983623062" value="上過理財課 / 看過理財書">上過理財課 / 看過理財書</label>
+          <label class="opt"><input type="checkbox" name="entry.983623062" value="幾乎沒有理財經驗">幾乎沒有理財經驗</label>
+          <span class="err">至少選一項</span>
+        </fieldset>
+
+        <div class="fq" data-req>
+          <label for="f-save">你每月大概能存下多少錢？（可填大概區間）<span class="req">*</span></label>
+          <input type="text" id="f-save" name="entry.1406955462">
+          <span class="err">這題必填</span>
+        </div>
+
+        <div class="fq" data-req>
+          <label for="f-goal">你渴望透過「理財」，達到什麼樣的具體成果／目標／夢想？（可列點）<span class="req">*</span></label>
+          <textarea id="f-goal" name="entry.790934692"></textarea>
+          <span class="err">這題必填</span>
+        </div>
+
+        <div class="fq" data-req>
+          <label for="f-tried">針對這個目標，你做過哪些嘗試？遇到什麼具體困難？（可列點）<span class="req">*</span></label>
+          <textarea id="f-tried" name="entry.411994800"></textarea>
+          <span class="err">這題必填</span>
+        </div>
+
+        <fieldset class="fq" data-req>
+          <legend>在這場諮詢中，你最希望帶走什麼？<span class="req">*</span></legend>
+          <span class="hint">可複選</span>
+          <label class="opt"><input type="checkbox" name="entry.2089552455" value="針對我的情況拿到具體建議">針對我的情況拿到具體建議</label>
+          <label class="opt"><input type="checkbox" name="entry.2089552455" value="釐清我的理財盲點">釐清我的理財盲點</label>
+          <label class="opt"><input type="checkbox" name="entry.2089552455" value="想了解是否有適合我的延伸學習方向">想了解是否有適合我的延伸學習方向</label>
+          <label class="opt"><input type="checkbox" name="entry.2089552455" value="還不確定，先聊聊">還不確定，先聊聊</label>
+          <span class="err">至少選一項</span>
+        </fieldset>
+
+        <fieldset class="fq" data-req>
+          <legend>後續的「三個月理財陪跑班」是需要投資一筆學費的深度陪跑方案。為了達成你上面寫的目標，你現在的狀態比較接近哪一種？<span class="req">*</span></legend>
+          <label class="opt"><input type="radio" name="entry.499503443" value="我有餘裕，願意為了目標投資自己">我有餘裕，願意為了目標投資自己</label>
+          <label class="opt"><input type="radio" name="entry.499503443" value="我目前手頭較緊，但改變意願強，會想辦法為自己安排學習預算">我目前手頭較緊，但改變意願強，會想辦法為自己安排學習預算</label>
+          <label class="opt"><input type="radio" name="entry.499503443" value="我目前沒有，也不打算安排這樣的預算">我目前沒有，也不打算安排這樣的預算</label>
+          <span class="err">請選一項</span>
+        </fieldset>
+
+        <fieldset class="fq" data-req>
+          <legend>你是如何認識我的？<span class="req">*</span></legend>
+          <label class="opt"><input type="radio" name="entry.790610462" value="IG">IG</label>
+          <label class="opt"><input type="radio" name="entry.790610462" value="Threads">Threads</label>
+          <label class="opt"><input type="radio" name="entry.790610462" value="Podcast">Podcast</label>
+          <label class="opt"><input type="radio" name="entry.790610462" value="朋友介紹">朋友介紹</label>
+          <label class="opt opt-other"><input type="radio" name="entry.790610462" value="__other_option__" id="f-src-other">其他：
+            <input type="text" name="entry.790610462.other_option_response" id="f-src-other-text" aria-label="其他來源"></label>
+          <span class="err">請選一項；選「其他」的話請寫一下是哪裡</span>
+        </fieldset>
+
+        <div class="fq">
+          <label for="f-note">其他想說的話</label>
+          <textarea id="f-note" name="entry.1608638123"></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn" id="submitBtn">送出，選擇健檢時間</button>
+          <p id="formErr">送出失敗，可能是網路不穩。請再按一次，或改用<a href="https://docs.google.com/forms/d/e/1FAIpQLSfbHXLWdDFaYh73T7X0OrvRRMziJPBCb-BTKyGis6uUYVygCw/viewform" target="_blank" rel="noopener">原始表單</a>填寫。</p>
+        </div>
+      </form>
 
       <div id="done">
         <div class="tick"></div>
@@ -696,42 +826,92 @@ footer.site p{max-width:46em}
 /* ==========================================================
    ▼▼▼ 只要改下面這兩行，整頁就會生效 ▼▼▼
 
-   FORM_URL     ：Google 表單的「嵌入」網址
-                  取得方式：表單右上角「傳送」→ 選 < > 圖示 → 複製 src="..." 引號裡那一段
-                  ⚠️ 表單務必做成「單一區段」，不要分頁，否則翻頁會被誤判成已送出
+   FORM_ACTION  ：Google 表單的「收件口」網址（表單網址最後的 viewform 換成 formResponse）
+                  頁面上的題目是自己畫的，送出時答案直接寄到這個網址，會出現在 Google 表單後台。
+                  ⚠️ 在 Google 表單裡新增題目、改題目設定或改選項文字之後，上面 HTML 的題目要跟著改，
+                     否則 Google 會默默拒收那一份回應（頁面這邊看不出來）。
 
    CALENDLY_URL ：你的 Calendly 預約頁網址，例如 https://calendly.com/xxx/45min
-
-   兩行都留空白也不會壞，頁面會顯示「待嵌入表單」的提示。
    ========================================================== */
 
-var FORM_URL     = "https://docs.google.com/forms/d/e/1FAIpQLSfbHXLWdDFaYh73T7X0OrvRRMziJPBCb-BTKyGis6uUYVygCw/viewform?embedded=true";
+var FORM_ACTION  = "https://docs.google.com/forms/d/e/1FAIpQLSfbHXLWdDFaYh73T7X0OrvRRMziJPBCb-BTKyGis6uUYVygCw/formResponse";
 var CALENDLY_URL = "https://calendly.com/geniusjohn0502/financialadvisory";
 
 /* ▲▲▲ 以下不用改 ▲▲▲ */
 
 (function () {
-  var frame = document.getElementById('gform');
+  var form  = document.getElementById('healthForm');
   var done  = document.getElementById('done');
-  var ph    = document.getElementById('formPlaceholder');
   var book  = document.getElementById('bookBtn');
+  var btn   = document.getElementById('submitBtn');
+  var err   = document.getElementById('formErr');
+  var other = document.getElementById('f-src-other');
+  var otherText = document.getElementById('f-src-other-text');
 
   if (CALENDLY_URL && book) book.href = CALENDLY_URL;
 
-  if (!FORM_URL) return;          // 還沒填表單網址，保留提示區塊
+  // 「其他」的輸入框：一打字就自動勾選「其他」
+  otherText.addEventListener('input', function () { if (otherText.value) other.checked = true; });
 
-  if (ph) ph.hidden = true;
-  frame.hidden = false;
-  frame.src = FORM_URL;
+  function isFilled(box) {
+    var inputs = box.querySelectorAll('input, textarea');
+    var choice = box.querySelector('input[type=radio], input[type=checkbox]');
+    if (box.hasAttribute('data-email')) return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inputs[0].value.trim());
+    if (!choice) return inputs[0].value.trim() !== '';
+    var picked = box.querySelector('input:checked');
+    if (!picked) return false;
+    if (picked === other) return otherText.value.trim() !== '';
+    return true;
+  }
 
-  // 偵測送出：iframe 第 2 次載入 = 使用者已送出表單。
-  // 跨網域無法讀取 iframe 內容，但 load 事件仍會觸發，這是可靠的判斷方式。
-  var loads = 0;
-  frame.addEventListener('load', function () {
-    if (++loads < 2) return;
-    frame.hidden = true;
-    done.style.display = 'block';
-    done.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  // 修正一題後，那題的紅字立刻消失
+  form.addEventListener('input', function (e) {
+    var box = e.target.closest('.fq');
+    if (box && box.classList.contains('invalid') && isFilled(box)) box.classList.remove('invalid');
+  });
+  form.addEventListener('change', function (e) {
+    var box = e.target.closest('.fq');
+    if (box && box.classList.contains('invalid') && isFilled(box)) box.classList.remove('invalid');
+  });
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    err.style.display = 'none';
+
+    var firstBad = null;
+    form.querySelectorAll('.fq[data-req]').forEach(function (box) {
+      var ok = isFilled(box);
+      box.classList.toggle('invalid', !ok);
+      if (!ok && !firstBad) firstBad = box;
+    });
+    if (firstBad) {
+      firstBad.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    var data = new URLSearchParams();
+    new FormData(form).forEach(function (v, k) {
+      if (k === 'entry.790610462.other_option_response' && !other.checked) return;
+      data.append(k, typeof v === 'string' ? v.trim() : v);
+    });
+    data.append('fvv', '1');
+    data.append('pageHistory', '0');
+
+    btn.disabled = true;
+    btn.textContent = '送出中…';
+
+    // Google 不讓別的網站讀取回應內容（no-cors），只要請求有寄出去就算成功
+    fetch(FORM_ACTION, { method: 'POST', mode: 'no-cors', body: data })
+      .then(function () {
+        form.hidden = true;
+        done.style.display = 'block';
+        done.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      })
+      .catch(function () {
+        btn.disabled = false;
+        btn.textContent = '送出，選擇健檢時間';
+        err.style.display = 'block';
+      });
   });
 })();
 </script>
