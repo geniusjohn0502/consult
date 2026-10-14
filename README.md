@@ -4,7 +4,7 @@
 
 - **本機檔案**：`~/Documents/consult/index.html`
 - **線上網址**：（尚未上線，見下方「上線步驟」）
-- **在漏斗的位置**：Threads 導流 → **這一頁**（免費諮詢）→ 諮詢中提案 → [三個月理財陪跑](https://geniusjohn0502.github.io/plan-2028/3month/)（NT$8,000）
+- **在漏斗的位置**：Threads 導流 → **這一頁**（免費諮詢）→ 諮詢中提案 → [三個月理財陪跑](https://3month.morechoice.net)（NT$8,000）
 
 ---
 
