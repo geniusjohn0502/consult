@@ -2,7 +2,7 @@
 
 灰哥的免費諮詢預約頁。單一 HTML 檔，沒有後端、沒有資料庫，樣式和程式都寫在 `index.html` 裡面。
 
-- **本機檔案**：`~/Documents/consult/index.html`
+- **本機檔案**：`~/Documents/網頁與程式/免費諮詢頁/index.html`
 - **線上網址**：（尚未上線，見下方「上線步驟」）
 - **在漏斗的位置**：Threads 導流 → **這一頁**（免費諮詢）→ 諮詢中提案 → [三個月理財陪跑](https://3month.morechoice.net)（NT$8,000）
 
@@ -32,7 +32,7 @@ Calendly 網址在 `index.html` 最底下的 `CALENDLY_URL`。
 ### 一、放上 GitHub Pages
 
 ```bash
-cd ~/Documents/consult
+cd ~/Documents/網頁與程式/免費諮詢頁
 git init && git add . && git commit -m "新增免費諮詢預約頁"
 gh repo create consult --public --source=. --push
 ```
@@ -89,7 +89,7 @@ Settings → Pages → **Custom domain** 填入 `consult.你的網域.com`，按
 整頁的文字都在 `index.html` 裡面，直接搜尋你要改的那句話就找得到。改完存檔，然後：
 
 ```bash
-cd ~/Documents/consult && git add . && git commit -m "更新文案" && git push
+cd ~/Documents/網頁與程式/免費諮詢頁 && git add . && git commit -m "更新文案" && git push
 ```
 
 推上去大約一分鐘後線上就會更新。
